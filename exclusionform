@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kiosk Form</title>
+    <script>
+        function clearFormOnLoad() {
+            const iframe = document.getElementById('formIframe');
+            iframe.onload = () => {
+                const clearButton = iframe.contentWindow.document.querySelector('button[type="reset"]');
+                if (clearButton) {
+                    clearButton.click();
+                } else {
+                    console.log("Clear button not found.");
+                }
+            };
+        }
+    </script>
+</head>
+<body onload="clearFormOnLoad()">
+    <iframe id="formIframe" src="https://docs.google.com/forms/d/e/1FAIpQLScG73wM6_tS_m7Gv9sbTS2yMz3PQQAq0Bq0uJgMXW5YoMEpkA/viewform?usp=sf_link" style="width: 100%; height: 100%; border: none;"></iframe>
+</body>
+</html>
